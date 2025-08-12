@@ -7,7 +7,7 @@ console.log('PORT from env:', process.env.PORT); // Debug log
 
 const connectDB = require('./config/dbConnect');
 const authRoutes = require('./routes/authRoutes');
-
+const userRourtes = require('./routes/userRoutes')
 connectDB();
 
 const app = express();
@@ -15,6 +15,7 @@ const app = express();
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
+app.use('/api/users', userRourtes);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
